@@ -266,6 +266,65 @@
       font-size: .85rem;
     }
 
+
+
+    
+    /* PASTORS CAROUSEL */
+    .pastors-section { background: #f0eee7; }
+    .pastor-carousel { position: relative; max-width: 1000px; margin: auto; }
+    .pastor-track {
+      display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth;
+      scroll-snap-type: x mandatory; padding: 8px 4px 20px;
+      scrollbar-width: none;
+    }
+    .pastor-track::-webkit-scrollbar { display: none; }
+    .pastor-card {
+      flex: 0 0 calc(33.333% - 14px); min-width: 230px; scroll-snap-align: start;
+      background: white; border: 1px solid #e9e6dd; border-radius: 12px;
+      overflow: hidden; text-align: center; box-shadow: 0 8px 25px rgba(8,23,47,.06);
+    }
+    .pastor-photo {
+      height: 230px; display: grid; place-items: center;
+      background: linear-gradient(135deg, #122746, #08172f); color: #d8b45b;
+      font-size: 3rem; font-weight: 800; letter-spacing: 2px;
+    }
+    .pastor-info { padding: 20px 16px; }
+    .pastor-info h3 { margin-bottom: 5px; }
+    .pastor-info p { color: #647084; font-size: .92rem; }
+    .carousel-controls { display: flex; justify-content: center; gap: 12px; margin-top: 18px; }
+    .carousel-btn {
+      width: 42px; height: 42px; border: 1px solid #d8b45b; border-radius: 50%;
+      background: #08172f; color: white; font-size: 1.25rem; cursor: pointer;
+    }
+    .carousel-btn:hover { background: #d8b45b; color: #08172f; }
+
+    /* CHURCH LEADERS CAROUSEL */
+    .leadership-section { background: #f7f4ec; }
+    .leaders-carousel { position: relative; display: flex; align-items: center; gap: 12px; }
+    .leaders-track {
+      display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory;
+      scroll-behavior: smooth; scrollbar-width: none; flex: 1; padding: 8px 2px 18px;
+    }
+    .leaders-track::-webkit-scrollbar { display: none; }
+    .leader-card {
+      flex: 0 0 calc(50% - 11px); min-width: 260px; overflow: hidden;
+      background: #fff; border: 1px solid #e7dfcf; border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(8,23,47,.10); scroll-snap-align: center;
+    }
+    .leader-photo { width: 100%; height: 330px; object-fit: cover; object-position: center 25%; display: block; }
+    .lucy-photo { object-position: 38% center; }
+    .leader-info { padding: 22px; text-align: center; }
+    .leader-tag { display: inline-block; color: #8b6a1c; background: #f8edcf; padding: 5px 12px;
+      border-radius: 30px; font-size: .75rem; font-weight: 700; letter-spacing: .7px; text-transform: uppercase; }
+    .leader-info h3 { margin: 12px 0 5px; font-size: 1.05rem; }
+    .leader-info p { color: #647084; }
+    .carousel-arrow { border: 1px solid var(--gold); background: var(--navy); color: var(--gold);
+      width: 42px; height: 42px; border-radius: 50%; cursor: pointer; flex-shrink: 0; font-size: 1.1rem; }
+    .carousel-arrow:hover { background: var(--gold); color: var(--navy); }
+    .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
+    .carousel-dot { width: 9px; height: 9px; border: 0; border-radius: 50%; background: #c9c3b5; cursor: pointer; }
+    .carousel-dot.active { background: var(--gold); width: 24px; border-radius: 8px; }
+
     @media (max-width: 800px) {
       .menu-toggle { display: block; }
 
