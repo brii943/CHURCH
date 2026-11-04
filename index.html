@@ -325,6 +325,40 @@
     .carousel-dot { width: 9px; height: 9px; border: 0; border-radius: 50%; background: #c9c3b5; cursor: pointer; }
     .carousel-dot.active { background: var(--gold); width: 24px; border-radius: 8px; }
 
+
+    /* REAL CHURCH PHOTO GALLERY */
+    .church-gallery { background: #f3f0e8; }
+    .church-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+    .church-gallery figure {
+      overflow: hidden;
+      border-radius: 16px;
+      background: white;
+      box-shadow: 0 12px 28px rgba(8,23,47,.12);
+      border: 1px solid rgba(216,180,91,.45);
+    }
+    .church-gallery img {
+      width: 100%;
+      height: 390px;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s ease;
+    }
+    .church-gallery figure:hover img { transform: scale(1.035); }
+    .church-gallery figcaption {
+      padding: 14px 18px;
+      color: var(--navy);
+      font-weight: 700;
+      text-align: center;
+    }
+    @media (max-width: 700px) {
+      .church-gallery-grid { grid-template-columns: 1fr; }
+      .church-gallery img { height: 300px; }
+    }
+
     @media (max-width: 800px) {
       .menu-toggle { display: block; }
 
@@ -403,6 +437,27 @@
     </section>
 
 
+
+
+  <section id="gallery" class="church-gallery">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Our Home</span>
+          <h2>Our Church Gallery</h2>
+          <p>Welcome to DeLiverance Church Illasit. See our church building and the place where we gather to worship.</p>
+        </div>
+        <div class="church-gallery-grid">
+          <figure>
+            <img src="images/church-1.jpg" alt="DeLiverance Church Illasit building, front view" loading="lazy">
+            <figcaption>DeLiverance Church Illasit</figcaption>
+          </figure>
+          <figure>
+            <img src="images/church-2.jpg" alt="DeLiverance Church Illasit building, side view" loading="lazy">
+            <figcaption>Our Church Building</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section> 
     
     <section id="pastors" class="pastors-section">
       <div class="container">
