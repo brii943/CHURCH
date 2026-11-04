@@ -671,9 +671,13 @@
 
         <form id="prayerForm">
           <div>
-            <label for="visitorName">Your name (optional)</label>
-            <input id="visitorName" name="visitorName"
-              placeholder="Enter your name">
+          <label for="visitorName">Your name (optional)</label>
+      <input
+        type="text"
+        id="visitorName"
+        name="visitorName"
+        placeholder="Enter your name">
+            
           </div>
           <div>
             <label for="prayerRequest">Prayer request</label>
@@ -844,37 +848,41 @@
       });
     }
 
-    // PRAYER REQUEST: PREPARE WHATSAPP MESSAGE
-    document.getElementById("prayerForm").addEventListener("submit", event => {
-      event.preventDefault();
+    // CHURCH WHATSAPP NUMBER
+const churchWhatsApp = "254722378237";
 
-      const name = document.getElementById("visitorName").value.trim();
-      const request = document.getElementById("prayerRequest").value.trim();
-      const message = document.getElementById("formMessage");
+// PRAYER REQUEST FORM
+document.getElementById("prayerForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-      if (!request) {
+    const name = document.getElementById("visitorName").value.trim();
+    const request = document.getElementById("prayerRequest").value.trim();
+    const message = document.getElementById("formMessage");
+
+    if (!request) {
         message.textContent = "Please enter your prayer request.";
         return;
-      }
+    }
 
-      if (!church.whatsappNumber) {
-        message.textContent =
-          "The church WhatsApp number has not been configured yet.";
-        return;
-      }
+    // Build WhatsApp message
+    const whatsappMessage =
+        "🙏 PRAYER REQUEST\n" +
+        "DeLiverance Church Illasit\n\n" +
+        (name ? "Name: " + name + "\n\n" : "") +
+        "Prayer Request:\n" + request + "\n\n" +
+        "Sent through the church website.";
 
-      const text =
-        "Prayer Request — DeLiverance Church Illasit\n\n" +
-        (name ? "Name: " + name + "\n" : "") +
-        "Prayer lRequest: " + request;
+    // Encode message for WhatsApp
+    const whatsappURL =
+        "https://wa.me/" + churchWhatsApp +
+        "?text=" + encodeURIComponent(whatsappMessage);
 
-      const url = "https://wa.me/" + church.whatsappNumber +
-        "?text=" + encodeURIComponent(text);
+    // Open WhatsApp
+    window.open(whatsappURL, "_blank");
 
-      window.open(url, "_blank", "noopener");
-      message.textContent =
-        "WhatsApp opened. Review your message and press Send there.";
-    });
+    message.textContent =
+        "WhatsApp opened! Please tap SEND to deliver your prayer request.";
+});
 
    // CHURCH LEADERS CAROUSEL
     const leadersTrack = document.getElementById("leadersTrack");
